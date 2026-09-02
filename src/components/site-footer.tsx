@@ -8,6 +8,7 @@ import { LICENSE } from "@/config/site"
 import { gsap } from "@/lib/gsap"
 import { cn } from "@/lib/utils"
 import { GitHubIcon } from "@/components/icons"
+import { LlmFeedButton } from "@/components/llm-feed-button"
 import { SiteFooterInteractiveLogotype } from "@/components/site-footer-brand"
 import { SOCIAL } from "@/features/portfolio/data/social-links"
 
@@ -171,6 +172,13 @@ export function SiteFooter() {
               >
                 {LICENSE.name}
               </a>
+            </dd>
+          </Item>
+
+          <Item className="footer-dl-item">
+            <dt>AI Discovery (GEO)</dt>
+            <dd className="pt-1">
+              <LlmFeedButton />
             </dd>
           </Item>
         </dl>
