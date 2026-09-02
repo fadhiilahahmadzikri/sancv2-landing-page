@@ -95,6 +95,9 @@ export const metadata: Metadata = {
       sizes: "180x180",
     },
   },
+  verification: {
+    google: "xBDwAvPnkrQS_QyFTH62nMGg57MfGuPwpyIrxwbVFeE",
+  },
 }
 
 export const viewport: Viewport = {
