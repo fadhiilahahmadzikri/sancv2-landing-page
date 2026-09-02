@@ -4,7 +4,7 @@ import { USER } from "@/features/portfolio/data/user"
 
 export const SITE_INFO = {
   name: "Sanctrum Voice",
-  url: process.env.NEXT_PUBLIC_APP_URL || "https://sanctrum-voice.vercel.app",
+  url: process.env.NEXT_PUBLIC_APP_URL || "https://sanctrum-landing.vercel.app",
   ogImage: USER.ogImage,
   description:
     "The open-source Windows voice layer & companion. Ultra low-latency Web Audio DSP, local Whisper STT, Kokoro neural speech synthesis, and interactive living mascot.",
