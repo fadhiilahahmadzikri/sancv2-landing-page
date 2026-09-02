@@ -1,0 +1,243 @@
+"use client"
+
+import React, { useState } from "react"
+import { ArrowUpRight, Check, Copy, Play, Terminal, Video } from "lucide-react"
+
+export function FeatureDemoShowcase() {
+  const [copied, setCopied] = useState(false)
+  const installCmd =
+    "irm https://raw.githubusercontent.com/fadhiilahahmadzikri/sanctrum-voice-v2/main/install.ps1 | iex"
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(installCmd)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
+
+  return (
+    <section
+      id="demo"
+      className="relative w-full scroll-mt-14 overflow-hidden border-b border-line bg-background text-foreground select-none"
+    >
+      {/* 1. Main Grid Rail Container with Rail Borders */}
+      <div className="relative mx-auto max-w-6xl border-x border-line bg-background">
+        {/* Main Content Area */}
+        <div className="relative flex flex-col lg:flex-row lg:items-stretch">
+          {/* ============================================================ */}
+          {/* LEFT COLUMN: Punchy Headline, Terminal Copy, & CTA           */}
+          {/* ============================================================ */}
+          <div className="z-20 flex w-full flex-col justify-center gap-7 border-b border-line bg-background/90 p-8 backdrop-blur-xs sm:p-10 lg:w-[45%] lg:border-r lg:border-b-0 lg:bg-transparent lg:p-12 lg:backdrop-blur-none">
+            {/* Top Area */}
+            <div className="flex flex-col gap-5">
+              {/* Playful Japanese Kanji Tag */}
+              <div className="relative inline-flex items-center select-none">
+                <svg
+                  viewBox="0 0 190 44"
+                  className="h-8 w-auto overflow-visible sm:h-9"
+                >
+                  {/* 1. Neobrutalist Shadow */}
+                  <g
+                    transform="translate(0, 4)"
+                    fill="none"
+                    stroke="#d8b4fe"
+                    strokeWidth="11"
+                    strokeLinejoin="round"
+                    strokeLinecap="round"
+                    fontFamily="var(--font-mochiy), sans-serif"
+                    fontSize="22"
+                    fontWeight="900"
+                  >
+                    <text transform="translate(14, 27) rotate(-6)">未</text>
+                    <text transform="translate(42, 26) rotate(5)">来</text>
+                    <text transform="translate(70, 28) rotate(-4)">の</text>
+                    <text transform="translate(98, 26) rotate(6)">音</text>
+                    <text transform="translate(126, 27) rotate(-5)">声</text>
+                    <path
+                      transform="translate(152, 15) rotate(6) scale(0.85)"
+                      d="M 16 7 C 16 1, 7 -4, 2 2 C -3 -4, -12 1, -12 7 C -12 14, 2 21, 2 21 C 2 21, 16 14, 16 7 Z"
+                    />
+                  </g>
+                  {/* 2. White Sticker */}
+                  <g
+                    fill="none"
+                    stroke="#ffffff"
+                    strokeWidth="11"
+                    strokeLinejoin="round"
+                    strokeLinecap="round"
+                    fontFamily="var(--font-mochiy), sans-serif"
+                    fontSize="22"
+                    fontWeight="900"
+                  >
+                    <text transform="translate(14, 27) rotate(-6)">未</text>
+                    <text transform="translate(42, 26) rotate(5)">来</text>
+                    <text transform="translate(70, 28) rotate(-4)">の</text>
+                    <text transform="translate(98, 26) rotate(6)">音</text>
+                    <text transform="translate(126, 27) rotate(-5)">声</text>
+                    <path
+                      transform="translate(152, 15) rotate(6) scale(0.85)"
+                      d="M 16 7 C 16 1, 7 -4, 2 2 C -3 -4, -12 1, -12 7 C -12 14, 2 21, 2 21 C 2 21, 16 14, 16 7 Z"
+                    />
+                  </g>
+                  {/* 3. Pastel Fills */}
+                  <g
+                    fontFamily="var(--font-mochiy), sans-serif"
+                    fontSize="22"
+                    fontWeight="900"
+                  >
+                    <text
+                      transform="translate(14, 27) rotate(-6)"
+                      fill="#c4b5fd"
+                    >
+                      未
+                    </text>
+                    <text
+                      transform="translate(42, 26) rotate(5)"
+                      fill="#fbcfe8"
+                    >
+                      来
+                    </text>
+                    <text
+                      transform="translate(70, 28) rotate(-4)"
+                      fill="#93c5fd"
+                    >
+                      の
+                    </text>
+                    <text
+                      transform="translate(98, 26) rotate(6)"
+                      fill="#60a5fa"
+                    >
+                      音
+                    </text>
+                    <text
+                      transform="translate(126, 27) rotate(-5)"
+                      fill="#c084fc"
+                    >
+                      声
+                    </text>
+                    <path
+                      transform="translate(152, 15) rotate(6) scale(0.85)"
+                      d="M 16 7 C 16 1, 7 -4, 2 2 C -3 -4, -12 1, -12 7 C -12 14, 2 21, 2 21 C 2 21, 16 14, 16 7 Z"
+                      fill="#f472b6"
+                    />
+                  </g>
+                </svg>
+              </div>
+
+              {/* Massive Headline Statement */}
+              <h2 className="text-2xl leading-[1.18] font-medium tracking-tight text-balance text-foreground sm:text-3xl md:text-4xl">
+                The voice layer to build the modern desktop.
+              </h2>
+
+              <p className="text-xs leading-relaxed text-balance text-muted-foreground sm:text-sm">
+                Full-system voice dictation, neural speech synthesis,
+                interactive companion mascot, and global hotkey control in one
+                unified Windows app.
+              </p>
+            </div>
+
+            {/* Bottom Action Rows (Install Command + Get Demo CTA) */}
+            <div className="flex flex-col gap-2.5">
+              {/* Terminal 1-Click Copy Box */}
+              <button
+                type="button"
+                onClick={handleCopy}
+                title="Click to copy PowerShell installation command"
+                className="group relative flex cursor-pointer items-center justify-between gap-3 border border-line bg-card px-4 py-2.5 text-left transition-colors hover:border-foreground/40 active:scale-[0.99]"
+              >
+                <div className="flex min-w-0 flex-1 items-center gap-2.5 font-mono text-xs text-foreground sm:text-xs">
+                  <span className="shrink-0 text-muted-foreground select-none">
+                    &gt;
+                  </span>
+                  <span className="truncate">{installCmd}</span>
+                </div>
+                <div className="flex shrink-0 items-center text-muted-foreground group-hover:text-foreground">
+                  {copied ? (
+                    <Check className="size-4 text-emerald-500" />
+                  ) : (
+                    <Copy className="size-4" />
+                  )}
+                </div>
+              </button>
+
+              {/* Download Windows CTA */}
+              <a
+                href="https://github.com/fadhiilahahmadzikri/sanctrum-voice-v2/releases"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-between border border-foreground bg-foreground px-4 py-2.5 text-background transition-all hover:bg-foreground/90 active:scale-[0.99]"
+              >
+                <span className="text-xs font-semibold tracking-wide sm:text-sm">
+                  Download Windows Release
+                </span>
+                <ArrowUpRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </a>
+            </div>
+          </div>
+
+          {/* ============================================================ */}
+          {/* RIGHT COLUMN: 100% Fluid Edge-to-Edge Video Demo Slot Window */}
+          {/* ============================================================ */}
+          <div className="relative flex w-full flex-1 flex-col overflow-hidden bg-card lg:w-[55%]">
+            {/* Window Header Bar */}
+            <div className="flex h-10 shrink-0 items-center justify-between border-b border-line bg-muted/60 px-4">
+              <div className="flex items-center gap-2">
+                <span className="size-2.5 rounded-full bg-rose-500/80" />
+                <span className="size-2.5 rounded-full bg-amber-500/80" />
+                <span className="size-2.5 rounded-full bg-emerald-500/80" />
+              </div>
+
+              <div className="flex items-center gap-1.5 font-mono text-xs text-muted-foreground">
+                <Terminal className="size-3.5" />
+                <span className="truncate">sanctrum-live-demo.mp4</span>
+              </div>
+
+              <span className="shrink-0 border border-emerald-500/20 bg-emerald-500/10 px-2 py-0.5 font-mono text-[10px] font-semibold text-emerald-600 dark:text-emerald-400">
+                LIVE DEMO
+              </span>
+            </div>
+
+            {/* Video / Screen Recording Slot Canvas (Fills entire remaining space) */}
+            <div className="group relative flex min-h-[320px] w-full flex-1 cursor-pointer flex-col items-center justify-center overflow-hidden bg-zinc-950 p-6 text-white sm:p-8">
+              {/* Subtle Blueprint Grid Pattern */}
+              <div
+                className="pointer-events-none absolute inset-0 opacity-[0.25]"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(to right, rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.08) 1px, transparent 1px)",
+                  backgroundSize: "28px 28px",
+                }}
+              />
+
+              {/* Glowing Canvas Backdrop */}
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-indigo-500/20 via-purple-500/10 to-transparent" />
+
+              {/* Center Play & Screen Recording Indicator */}
+              <div className="relative z-10 flex flex-col items-center gap-3.5 text-center">
+                <div className="flex size-14 items-center justify-center rounded-full border-2 border-white/20 bg-white/10 shadow-2xl backdrop-blur-md transition-all duration-300 group-hover:scale-110 group-hover:border-white/40 group-hover:bg-white/20 sm:size-16">
+                  <Play className="ml-1 size-6 fill-white text-white sm:size-7" />
+                </div>
+
+                <div className="flex flex-col gap-1">
+                  <div className="flex items-center justify-center gap-2 text-sm font-semibold text-zinc-100">
+                    <Video className="size-4 text-indigo-400" />
+                    <span>Screen Recording Slot</span>
+                  </div>
+                  <p className="max-w-sm text-xs leading-relaxed text-zinc-400">
+                    Sematkan rekaman video demo `.mp4` atau video walkthrough
+                    Sanctrum langsung di sini.
+                  </p>
+                </div>
+              </div>
+
+              {/* Bottom Control / Scrubber Bar */}
+              <div className="absolute inset-x-0 bottom-0 flex h-8 items-center justify-between border-t border-white/10 bg-black/40 px-3.5 font-mono text-[10px] text-zinc-400 backdrop-blur-sm">
+                <span>00:00 / 02:45</span>
+                <span>1920x1080 • 60 FPS • WEBAUDIO DSP</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
