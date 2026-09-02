@@ -1,32 +1,48 @@
 import { SITE_INFO } from "@/config/site"
-import { getBlogPosts, getComponentDocs } from "@/features/doc/data/documents"
 
-const allComponents = getComponentDocs()
-const allPosts = getBlogPosts()
+const content = `# Sanctrum Voice — The Open-Source Windows Voice Layer & AI Companion
 
-const content = `# chanhdai.com
+> Sanctrum Voice is a modern, high-performance, open-source Windows voice layer and desktop AI companion designed for zero-latency speech input, local Whisper STT, Kokoro neural TTS synthesis, Web Audio FFT DSP spectrum visualization, and living 3D mascot interactions.
 
-> A pixel-perfect dev portfolio and shadcn registry showcasing my work as a Design Engineer.
+- **Website:** ${SITE_INFO.url}
+- **GitHub Repository:** https://github.com/fadhiilahahmadzikri/sanctrum-voice-v2
+- **Latest Windows Installer:** https://github.com/fadhiilahahmadzikri/sanctrum-voice-v2/releases/latest
+- **License:** MIT License
+- **Author:** Fadhiilah Ahmad Zikri
 
-- [About](${SITE_INFO.url}/about.md): A quick intro to me, my tech stack, and how to connect.
-- [Experience](${SITE_INFO.url}/experience.md): Highlights from my career and key roles I've taken on.
-- [Education](${SITE_INFO.url}/education.md): Where I studied, what I focused on, and what I built along the way.
-- [Projects](${SITE_INFO.url}/projects.md): Selected projects that show my skills and creativity.
-- [Awards](${SITE_INFO.url}/awards.md): My key awards and honors.
-- [Certifications](${SITE_INFO.url}/certifications.md): Certifications and credentials I've earned.
-- [Intellectual property](${SITE_INFO.url}/intellectual-property.md): Trademarks and copyrights registered under my name.
-- [Components](${SITE_INFO.url}/components.md): Every registry component, with install instructions.
-- [Blocks](${SITE_INFO.url}/blocks.md): Every registry block, grouped by category, with install instructions.
-- [Blog](${SITE_INFO.url}/blog.md): Every blog post, newest first, with publish dates.
-- [Bookmarks](${SITE_INFO.url}/bookmarks.md): Articles, courses, books, references, and tools I recommend.
+---
 
-## Components
+## ⚡ Core Capabilities & Architecture
 
-${allComponents.map((item) => `- [${item.metadata.title}](${SITE_INFO.url}/components/${item.slug}.md): ${item.metadata.description}`).join("\n")}
+1. **Local Speech-to-Text (STT):**
+   - High-accuracy offline transcription powered by local OpenAI Whisper models (Tiny, Base, Small, Medium).
+   - Zero cloud audio streaming for absolute user privacy and offline operability.
 
-## Blog
+2. **Neural Text-to-Speech (TTS):**
+   - Ultra low-latency natural human speech synthesis using Kokoro-82M ONNX neural models.
+   - High-fidelity voice styles with dynamic prosody and pitch calibration.
 
-${allPosts.map((item) => `- [${item.metadata.title}](${SITE_INFO.url}/blog/${item.slug}.md): ${item.metadata.description}`).join("\n")}
+3. **Web Audio DSP & Spectrum Visualizer:**
+   - Real-time Web Audio FFT (Fast Fourier Transform) frequency analysis.
+   - Live spectrum frame buffers feeding dynamic viscous WebGL fluid orbs and procedural SVG facial liveliness.
+
+4. **Living Mascot & Thinking Orbs:**
+   - Procedural eye gazes, organic wander noise, deterministic blinking, and 16 emotive facial expressions.
+   - Audio-reactive animation velocity scaling directly tied to user speech amplitude.
+
+5. **Windows 11 Integration:**
+   - Global system hotkeys, push-to-talk, desktop overlay HUD, and seamless clipboard injection.
+   - Built on native Bun runtime, Electron, TypeScript, and Tailwind CSS.
+
+---
+
+## 🚀 Navigation & Key URLs
+
+- [Overview](${SITE_INFO.url}/#overview): Architectural breakdown of the voice engine and audio pipeline.
+- [Live Interactive Demo](${SITE_INFO.url}/#demo): Interactive voice visualizer and mascot demo in the browser.
+- [Tech Stack](${SITE_INFO.url}/#tech-stack): Bun runtime, Web Audio DSP, Kokoro TTS, Whisper STT, and WebGL.
+- [Why Sanctrum](${SITE_INFO.url}/#why-sanctrum): Comparison of zero-cloud local voice processing vs cloud assistants.
+- [Download Release](${SITE_INFO.url}/#overview): Latest Windows 64-bit installer (.exe).
 `
 
 export const revalidate = false

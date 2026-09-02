@@ -1,7 +1,6 @@
-import type { Person } from "schema-dts"
+import type { Person, SoftwareApplication, WithContext } from "schema-dts"
 
 import { SITE_INFO } from "@/config/site"
-import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links"
 import { USER } from "@/features/portfolio/data/user"
 
 /**
@@ -12,16 +11,38 @@ import { USER } from "@/features/portfolio/data/user"
 export const JSON_LD_ID = {
   website: `${SITE_INFO.url}/#website`,
   person: `${SITE_INFO.url}/#person`,
+  app: `${SITE_INFO.url}/#app`,
 } as const
 
 export const personJsonLd: Person = {
   "@type": "Person",
   "@id": JSON_LD_ID.person,
-  name: USER.displayName,
-  alternateName: [USER.username],
-  identifier: USER.username,
+  name: "Fadhiilah Ahmad Zikri",
+  alternateName: ["Ahmad Zikri", "fadhiilahahmadzikri"],
+  identifier: "fadhiilahahmadzikri",
   image: USER.avatar,
   url: SITE_INFO.url,
-  // Public profiles opt in via their `sameAs` flag (Knowledge Graph).
-  sameAs: SOCIAL_LINKS.filter((link) => link.sameAs).map((link) => link.href),
+  sameAs: [
+    "https://github.com/fadhiilahahmadzikri",
+    "https://github.com/fadhiilahahmadzikri/sanctrum-voice-v2",
+  ],
+}
+
+export const softwareAppJsonLd: WithContext<SoftwareApplication> = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "@id": JSON_LD_ID.app,
+  name: "Sanctrum Voice",
+  operatingSystem: "Windows 10, Windows 11",
+  applicationCategory: "MultimediaApplication",
+  description: SITE_INFO.description,
+  url: SITE_INFO.url,
+  downloadUrl:
+    "https://github.com/fadhiilahahmadzikri/sanctrum-voice-v2/releases/latest",
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD",
+  },
+  author: personJsonLd,
 }

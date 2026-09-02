@@ -4,7 +4,7 @@ import React, { useRef } from "react"
 import { useGSAP } from "@gsap/react"
 import { SiInstagram } from "@icons-pack/react-simple-icons"
 
-import { LICENSE, SOURCE_CODE_GITHUB_URL } from "@/config/site"
+import { LICENSE } from "@/config/site"
 import { gsap } from "@/lib/gsap"
 import { cn } from "@/lib/utils"
 import { GitHubIcon } from "@/components/icons"
@@ -99,7 +99,7 @@ export function SiteFooter() {
 
           <Item className="footer-dl-item">
             <dt>Version</dt>
-            <dd>v3.1.2</dd>
+            <dd>v3.1.3</dd>
           </Item>
 
           <Item className="footer-dl-item">
@@ -109,49 +109,53 @@ export function SiteFooter() {
 
           <Item className="footer-dl-item">
             <dt>Deployed on</dt>
-            <dd>Vercel</dd>
+            <dd>
+              <a
+                className="link-underline"
+                href="https://sanctrum-landing.vercel.app"
+                target="_blank"
+                rel="noopener"
+              >
+                Vercel (sanctrum-landing.vercel.app)
+              </a>
+            </dd>
           </Item>
 
           <Item className="footer-dl-item">
             <dt>Stack</dt>
             <dd>
               <ul>
-                <li>next@16.3.3</li>
-                <li>react@19.2.8</li>
-                <li>tailwindcss@4.3.3</li>
+                <li>Bun & Electron Core</li>
+                <li>Whisper STT & Kokoro TTS</li>
+                <li>Next.js 16 & Tailwind v4</li>
               </ul>
             </dd>
           </Item>
 
           <Item className="footer-dl-item">
-            <dt>Analytics</dt>
-            <dd>
-              <ul>
-                <li>
-                  <a
-                    className="link-underline"
-                    href="https://openpanel.dev"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    OpenPanel
-                  </a>
-                </li>
-                <li>Google Analytics</li>
-              </ul>
-            </dd>
-          </Item>
-
-          <Item className="footer-dl-item">
-            <dt>Source code</dt>
+            <dt>Electron App Repo</dt>
             <dd>
               <a
                 className="link-underline"
-                href={SOURCE_CODE_GITHUB_URL}
+                href="https://github.com/fadhiilahahmadzikri/sanctrum-voice-v2"
                 target="_blank"
                 rel="noopener"
               >
-                GitHub
+                sanctrum-voice-v2
+              </a>
+            </dd>
+          </Item>
+
+          <Item className="footer-dl-item">
+            <dt>Landing Page Repo</dt>
+            <dd>
+              <a
+                className="link-underline"
+                href="https://github.com/fadhiilahahmadzikri/sancv2-landing-page"
+                target="_blank"
+                rel="noopener"
+              >
+                sancv2-landing-page
               </a>
             </dd>
           </Item>

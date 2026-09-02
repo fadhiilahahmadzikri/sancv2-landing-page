@@ -6,7 +6,7 @@ import { GoogleTagManager } from "@next/third-parties/google"
 import { NuqsAdapter } from "nuqs/adapters/next/app"
 import type { WebSite, WithContext } from "schema-dts"
 
-import { JSON_LD_ID, personJsonLd } from "@/config/json-ld"
+import { JSON_LD_ID, personJsonLd, softwareAppJsonLd } from "@/config/json-ld"
 import { META_THEME_COLORS, SITE_INFO, X_HANDLE } from "@/config/site"
 import { fontVariables } from "@/lib/fonts"
 import { JsonLdScript } from "@/lib/json-ld"
@@ -146,6 +146,7 @@ export default function RootLayout({
           }}
         />
         <JsonLdScript data={getWebSiteJsonLd()} />
+        <JsonLdScript data={softwareAppJsonLd} />
         {ADSENSE_CLIENT && (
           <Script
             async
