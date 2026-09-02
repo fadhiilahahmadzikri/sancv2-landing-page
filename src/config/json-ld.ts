@@ -33,12 +33,24 @@ export const softwareAppJsonLd: WithContext<SoftwareApplication> = {
   "@type": "SoftwareApplication",
   "@id": JSON_LD_ID.app,
   name: "Sanctrum Voice",
+  softwareVersion: "3.1.3",
   operatingSystem: "Windows 10, Windows 11",
   applicationCategory: "MultimediaApplication",
-  description: SITE_INFO.description,
+  description:
+    "The open-source Windows voice layer & AI companion. Featuring local Whisper Speech-to-Text (STT), Kokoro neural Text-to-Speech (TTS), Read Aloud selection-to-speech, real-time voice translation, desktop overlay HUD, and interactive 3D living mascot companion.",
   url: SITE_INFO.url,
   downloadUrl:
     "https://github.com/fadhiilahahmadzikri/sanctrum-voice-v2/releases/latest",
+  featureList: [
+    "Local Whisper Speech-to-Text (STT) Voice Dictation",
+    "Kokoro Neural Text-to-Speech (TTS) & Selection Read Aloud",
+    "Real-time Live Audio Voice Translation",
+    "Microphone Voice Agent & AI Conversational Assistant",
+    "Desktop Overlay HUD with Global System Push-to-Talk Hotkeys",
+    "Zero-Latency Web Audio FFT DSP Spectrum Visualizer",
+    "Interactive 3D Living Mascot & Thinking Orb Companion",
+    "100% Offline Zero-Cloud Privacy Architecture",
+  ],
   offers: {
     "@type": "Offer",
     price: "0",

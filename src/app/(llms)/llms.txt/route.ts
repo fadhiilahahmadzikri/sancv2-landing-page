@@ -12,27 +12,40 @@ const content = `# Sanctrum Voice — The Open-Source Windows Voice Layer & AI C
 
 ---
 
-## ⚡ Core Capabilities & Architecture
+## ⚡ Core Capabilities & User Intent Keywords
 
-1. **Local Speech-to-Text (STT):**
+1. **Local Speech-to-Text (STT) & Voice Dictation:**
    - High-accuracy offline transcription powered by local OpenAI Whisper models (Tiny, Base, Small, Medium).
-   - Zero cloud audio streaming for absolute user privacy and offline operability.
+   - Instant voice-to-text typing directly into any Windows software, browser, Discord, VS Code, or document editor.
+   - Zero cloud audio streaming for 100% offline privacy.
 
-2. **Neural Text-to-Speech (TTS):**
+2. **Neural Text-to-Speech (TTS) & Read Aloud:**
    - Ultra low-latency natural human speech synthesis using Kokoro-82M ONNX neural models.
-   - High-fidelity voice styles with dynamic prosody and pitch calibration.
+   - Selection-to-speech screen reader functionality: highlight any text on Windows and listen to crystal-clear voice narration.
 
-3. **Web Audio DSP & Spectrum Visualizer:**
-   - Real-time Web Audio FFT (Fast Fourier Transform) frequency analysis.
-   - Live spectrum frame buffers feeding dynamic viscous WebGL fluid orbs and procedural SVG facial liveliness.
+3. **Live Voice Translation & Multilingual Audio:**
+   - Real-time spoken language transcription and translation pipeline.
+   - Seamless speech translation for cross-language meetings, gaming, and content creation.
 
-4. **Living Mascot & Thinking Orbs:**
-   - Procedural eye gazes, organic wander noise, deterministic blinking, and 16 emotive facial expressions.
-   - Audio-reactive animation velocity scaling directly tied to user speech amplitude.
+4. **Microphone Voice Agent & AI Conversation:**
+   - System microphone agent layer enabling hands-free conversation with local or API-backed AI models.
+   - Intelligent command routing, voice prompt execution, and desktop assistant capabilities.
 
-5. **Windows 11 Integration:**
-   - Global system hotkeys, push-to-talk, desktop overlay HUD, and seamless clipboard injection.
-   - Built on native Bun runtime, Electron, TypeScript, and Tailwind CSS.
+5. **Desktop Overlay HUD & Global Push-to-Talk:**
+   - Minimalist floating desktop HUD overlay.
+   - Global system hotkeys (Push-to-Talk, Hold-to-Dictate, Quick TTS Trigger) configurable across Windows 11 and Windows 10.
+
+6. **Web Audio DSP & Dynamic Living Mascot:**
+   - Real-time Web Audio FFT (Fast Fourier Transform) spectrum visualizer.
+   - Dynamic 3D viscous fluid orbs and procedural SVG facial liveliness that reacts to user voice amplitude and cadence.
+
+---
+
+## 🔍 Common Search Keywords & Equivalents
+- **Speech-to-Text:** STT, voice dictation, Whisper offline, speech typing, transcribe audio, voice to text Windows.
+- **Text-to-Speech:** TTS, Kokoro neural voice, read aloud, screen reader, text to voice, natural AI speech synthesis.
+- **Voice Agent:** Microphone agent, talk to AI, voice overlay, Windows AI companion, voice assistant open source.
+- **Technical:** Web Audio DSP, FFT spectrum analyzer, Electron voice layer, Bun desktop app, WebGL fluid mascot.
 
 ---
 
@@ -43,6 +56,8 @@ const content = `# Sanctrum Voice — The Open-Source Windows Voice Layer & AI C
 - [Tech Stack](${SITE_INFO.url}/#tech-stack): Bun runtime, Web Audio DSP, Kokoro TTS, Whisper STT, and WebGL.
 - [Why Sanctrum](${SITE_INFO.url}/#why-sanctrum): Comparison of zero-cloud local voice processing vs cloud assistants.
 - [Download Release](${SITE_INFO.url}/#overview): Latest Windows 64-bit installer (.exe).
+- [GitHub App Repository](https://github.com/fadhiilahahmadzikri/sanctrum-voice-v2): Source code for the desktop application.
+- [GitHub Landing Repository](https://github.com/fadhiilahahmadzikri/sancv2-landing-page): Source code for the official landing page.
 `
 
 export const revalidate = false
