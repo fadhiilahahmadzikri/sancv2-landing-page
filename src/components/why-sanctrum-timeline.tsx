@@ -60,7 +60,7 @@ const WHY_CARDS: WhyCard[] = [
     title: "OS-Wide Global Hotkeys.",
     subtitle: "Native Windows Hooks",
     description:
-      "Selection-to-speech, instant voice-to-clipboard, and native Windows automation across any application.",
+      "Selection-to-speech, instant voice-to-clipboard, and native Microsoft Windows automation across any application.",
     metric: "System-Level Win32",
     kanjiChar: "鍵",
     kanjiRotate: 7,
@@ -212,8 +212,9 @@ export function WhySanctrumTimeline() {
             />
 
             <p className="text-sm leading-relaxed text-balance text-muted-foreground sm:text-base">
-              Work with sub-millisecond local speech models to enable real-time
-              dictation that transforms your desktop productivity.
+              Compare it with built-in TTS or cloud-heavy voice assistants:
+              Sanctrum keeps Windows text-to-speech, dictation, and read aloud
+              close to your desktop.
             </p>
           </div>
 

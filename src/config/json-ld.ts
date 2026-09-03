@@ -4,6 +4,7 @@ import {
   getWindowsDownloadUrl,
   SANCTRUM_WINDOWS_DOWNLOAD,
 } from "@/config/download"
+import { HOME_SEO } from "@/config/seo"
 import { SITE_INFO } from "@/config/site"
 import { USER } from "@/features/portfolio/data/user"
 
@@ -37,16 +38,22 @@ export const softwareAppJsonLd: WithContext<SoftwareApplication> = {
   "@type": "SoftwareApplication",
   "@id": JSON_LD_ID.app,
   name: "Sanctrum Voice",
+  alternateName: [
+    "Microsoft TTS alternative for Windows",
+    "Windows text-to-speech companion",
+    "Open-source TTS app for Windows",
+  ],
   softwareVersion: SANCTRUM_WINDOWS_DOWNLOAD.appVersion,
   operatingSystem: "Windows 10, Windows 11",
   applicationCategory: "MultimediaApplication",
-  description:
-    "The open-source Windows voice layer & AI companion. Featuring local Whisper Speech-to-Text (STT), Kokoro neural Text-to-Speech (TTS), Read Aloud selection-to-speech, real-time voice translation, desktop overlay HUD, and interactive 3D living mascot companion.",
+  description: HOME_SEO.description,
   url: SITE_INFO.url,
   downloadUrl: getWindowsDownloadUrl(SITE_INFO.url),
+  isAccessibleForFree: true,
   featureList: [
     "Local Whisper Speech-to-Text (STT) Voice Dictation",
-    "Kokoro Neural Text-to-Speech (TTS) & Selection Read Aloud",
+    "Kokoro Neural Text-to-Speech (TTS) and Selection Read Aloud",
+    "Microsoft TTS alternative workflows for Windows users",
     "Real-time Live Audio Voice Translation",
     "Microphone Voice Agent & AI Conversational Assistant",
     "Desktop Overlay HUD with Global System Push-to-Talk Hotkeys",

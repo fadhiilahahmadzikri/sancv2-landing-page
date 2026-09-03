@@ -1,11 +1,12 @@
 import { getWindowsDownloadUrl } from "@/config/download"
+import { HOME_SEO } from "@/config/seo"
 import { SITE_INFO } from "@/config/site"
 
 const windowsDownloadUrl = getWindowsDownloadUrl(SITE_INFO.url)
 
-const content = `# Sanctrum Voice — The Open-Source Windows Voice Layer & AI Companion
+const content = `# ${HOME_SEO.title}
 
-> Sanctrum Voice is a modern, high-performance, open-source Windows voice layer and desktop AI companion designed for zero-latency speech input, local Whisper STT, Kokoro neural TTS synthesis, Web Audio FFT DSP spectrum visualization, and living 3D mascot interactions.
+> ${HOME_SEO.description}
 
 - **Website:** ${SITE_INFO.url}
 - **GitHub Repository:** https://github.com/fadhiilahahmadzikri/sanctrum-voice-v2
@@ -15,7 +16,7 @@ const content = `# Sanctrum Voice — The Open-Source Windows Voice Layer & AI C
 
 ---
 
-## ⚡ Core Capabilities & User Intent Keywords
+## Core capabilities and user intent keywords
 
 1. **Local Speech-to-Text (STT) & Voice Dictation:**
    - High-accuracy offline transcription powered by local OpenAI Whisper models (Tiny, Base, Small, Medium).
@@ -25,6 +26,7 @@ const content = `# Sanctrum Voice — The Open-Source Windows Voice Layer & AI C
 2. **Neural Text-to-Speech (TTS) & Read Aloud:**
    - Ultra low-latency natural human speech synthesis using Kokoro-82M ONNX neural models.
    - Selection-to-speech screen reader functionality: highlight any text on Windows and listen to crystal-clear voice narration.
+   - Microsoft TTS alternative workflow for users who want an open-source Windows voice layer.
 
 3. **Live Voice Translation & Multilingual Audio:**
    - Real-time spoken language transcription and translation pipeline.
@@ -44,7 +46,8 @@ const content = `# Sanctrum Voice — The Open-Source Windows Voice Layer & AI C
 
 ---
 
-## 🔍 Common Search Keywords & Equivalents
+## Common search keywords and equivalents
+- **Microsoft TTS Alternative:** Microsoft TTS alternative, Microsoft text to speech alternative, TTS Microsoft Windows, Windows text-to-speech.
 - **Speech-to-Text:** STT, voice dictation, Whisper offline, speech typing, transcribe audio, voice to text Windows.
 - **Text-to-Speech:** TTS, Kokoro neural voice, read aloud, screen reader, text to voice, natural AI speech synthesis.
 - **Voice Agent:** Microphone agent, talk to AI, voice overlay, Windows AI companion, voice assistant open source.
@@ -52,7 +55,7 @@ const content = `# Sanctrum Voice — The Open-Source Windows Voice Layer & AI C
 
 ---
 
-## 🚀 Navigation & Key URLs
+## Navigation and key URLs
 
 - [Overview](${SITE_INFO.url}/#overview): Architectural breakdown of the voice engine and audio pipeline.
 - [Live Interactive Demo](${SITE_INFO.url}/#demo): Interactive voice visualizer and mascot demo in the browser.

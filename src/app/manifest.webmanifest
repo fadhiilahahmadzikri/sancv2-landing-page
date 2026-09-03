@@ -1,8 +1,8 @@
 {
   "short_name": "Sanctrum",
   "name": "Sanctrum Voice",
-  "description": "The open-source Windows voice layer & companion.",
-  "categories": ["productivity", "utilities"],
+  "description": "Open-source Microsoft TTS alternative and Windows voice companion.",
+  "categories": ["accessibility", "productivity", "utilities"],
   "icons": [
     {
       "src": "/logo.png",

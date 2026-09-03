@@ -7,9 +7,9 @@ export const USER: User = {
   username: "fadhiilahahmadzikri",
   gender: "male",
   pronouns: "he/him",
-  bio: "The Open-Source Windows Voice Layer & AI Companion.",
+  bio: "Open-source Microsoft TTS alternative and Windows voice companion.",
   flipSentences: [
-    "The Open-Source Windows Voice Layer.",
+    "Microsoft TTS Alternative for Windows.",
     "Zero-Latency Local DSP.",
     "Whisper STT & Kokoro Neural TTS.",
     "Interactive 3D Mascot Companion.",
@@ -27,8 +27,8 @@ export const USER: User = {
       experienceId: "sanctrum",
     },
   ],
-  about: `- Creator of Sanctrum Voice — an ultra low-latency Windows desktop voice layer and AI companion.
-- Engineered with Web Audio FFT DSP buffers, local Whisper STT, and neural speech synthesis.
+  about: `- Creator of Sanctrum Voice — an open-source Microsoft TTS alternative and Windows desktop voice layer.
+- Engineered with Web Audio FFT DSP buffers, local Whisper STT, and Kokoro neural TTS.
 - Built for builders, developers, and writers who live by voice.
 `,
   avatar: "/logo.png",
@@ -48,6 +48,8 @@ export const USER: User = {
     "whisper stt",
     "kokoro tts",
     "windows voice",
+    "microsoft tts alternative",
+    "windows text to speech",
     "ahmad zikri",
     "fadhiilahahmadzikri",
   ],

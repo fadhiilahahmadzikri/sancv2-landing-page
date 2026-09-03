@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   manifest: "/manifest.webmanifest",
   title: {
     template: `%s – ${SITE_INFO.name}`,
-    default: `${SITE_INFO.name} – The Open-Source Windows Voice Layer & Companion`,
+    default: SITE_INFO.title,
   },
   description: SITE_INFO.description,
   keywords: SITE_INFO.keywords,
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   creator: "Fadhiilah Ahmad Zikri",
   openGraph: {
     siteName: SITE_INFO.name,
-    title: `${SITE_INFO.name} – The Open-Source Windows Voice Layer & Companion`,
+    title: SITE_INFO.title,
     description: SITE_INFO.description,
     url: "/",
     type: "website",
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE_INFO.name} – The Open-Source Windows Voice Layer & Companion`,
+    title: SITE_INFO.title,
     description: SITE_INFO.description,
     site: X_HANDLE,
     creator: X_HANDLE,

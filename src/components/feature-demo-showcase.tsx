@@ -12,6 +12,7 @@ import {
 } from "lucide-react"
 
 import { SANCTRUM_WINDOWS_DOWNLOAD } from "@/config/download"
+import { SANCTRUM_DEMO_VIDEO_SEO } from "@/config/seo"
 import { Button } from "@/components/ui/button"
 import {
   Dialog,
@@ -26,9 +27,9 @@ import {
 const DEMO_VIDEO = {
   title: "Sanctrum live demo",
   fileName: "sanctrum-demo.mp4",
-  src: "/videos/sanctrum-demo.mp4",
-  poster: "/videos/sanctrum-demo-poster.webp",
-  meta: "1280x720 • 30 FPS • 01:22",
+  src: SANCTRUM_DEMO_VIDEO_SEO.contentUrl,
+  poster: SANCTRUM_DEMO_VIDEO_SEO.thumbnailUrl,
+  meta: "1280x720 - 30 FPS - 01:23",
 } as const
 
 export function FeatureDemoShowcase() {
@@ -153,13 +154,14 @@ export function FeatureDemoShowcase() {
 
               {/* Massive Headline Statement */}
               <h2 className="text-2xl leading-[1.18] font-medium tracking-tight text-balance text-foreground sm:text-3xl md:text-4xl">
-                The voice layer to build the modern desktop.
+                A Microsoft TTS alternative built for the modern Windows
+                desktop.
               </h2>
 
               <p className="text-xs leading-relaxed text-balance text-muted-foreground sm:text-sm">
-                Full-system voice dictation, neural speech synthesis,
-                interactive companion mascot, and global hotkey control in one
-                unified Windows app.
+                Full-system voice dictation, Kokoro neural text-to-speech,
+                selection read aloud, interactive companion mascot, and global
+                hotkey control in one unified Windows app.
               </p>
             </div>
 

@@ -5,6 +5,7 @@ import { useGSAP } from "@gsap/react"
 import { Volume2, VolumeX } from "lucide-react"
 
 import { SANCTRUM_WINDOWS_DOWNLOAD } from "@/config/download"
+import { HOME_SEO } from "@/config/seo"
 import { gsap } from "@/lib/gsap"
 import { GlowCtaButton } from "@/components/ui/glow-cta-button"
 import { SanctrumIridescentLogo } from "@/components/sanctrum-iridescent-logo"
@@ -158,7 +159,7 @@ export function ProfileHeader() {
   )
 
   const subtitleWords =
-    "A Windows desktop voice layer for hands-free dictation, command routing, and selection-to-speech".split(
+    "An open-source Microsoft TTS alternative for Windows with Whisper STT dictation, Kokoro neural speech, and selection-to-speech".split(
       " "
     )
 
@@ -207,9 +208,10 @@ export function ProfileHeader() {
             </div>
 
             {/* Main Big Iridescent Sanctrum Typography (Centered) */}
-            <div className="hero-logo-wrapper relative mx-auto mb-1 flex justify-center will-change-transform sm:mb-2">
+            <h1 className="hero-logo-wrapper relative mx-auto mb-1 flex justify-center will-change-transform sm:mb-2">
+              <span className="sr-only">{HOME_SEO.title}</span>
               <SanctrumIridescentLogo />
-            </div>
+            </h1>
 
             {/* Subtitle / Tagline (Serialized Masked Word Stagger) */}
             <p className="hero-subtitle mx-auto max-w-xl text-base leading-relaxed font-medium text-balance text-indigo-950 sm:text-lg md:text-xl dark:text-[#e8e8e8]">

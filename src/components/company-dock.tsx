@@ -350,7 +350,7 @@ export function CompanyDock() {
           {/* Big Bold Balanced Statement with 3D Editorial Perspective Reveal */}
           <GsapEditorialReveal
             as="h2"
-            text="Sanctrum is the open-source Windows voice layer used in production by the most innovative builders on earth."
+            text="Sanctrum is the open-source Windows voice layer for Microsoft TTS alternative workflows, local dictation, and fast read aloud."
             className="text-2xl leading-[1.28] font-medium tracking-tight text-balance text-foreground sm:text-3xl md:text-4xl lg:text-[2.65rem]"
           />
         </div>

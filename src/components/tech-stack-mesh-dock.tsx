@@ -624,8 +624,8 @@ export function TechStackMeshDock() {
 
           {/* Subtitle */}
           <p className="stack-text-item max-w-2xl text-xs leading-relaxed font-normal text-balance text-muted-foreground sm:text-sm md:text-base">
-            High-performance voice stack combining Bun, Electron, Web Audio DSP,
-            and neural models from cloud to local edge.
+            Native desktop runtime for Windows text-to-speech, Whisper STT
+            dictation, Kokoro TTS, and low-latency Web Audio DSP.
           </p>
 
           {/* CTA & Engine Badge Action Row */}
