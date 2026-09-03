@@ -1,9 +1,35 @@
 "use client"
 
 import React, { useState } from "react"
-import { Check, Copy, DownloadIcon, Play, Terminal, Video } from "lucide-react"
+import {
+  Check,
+  Copy,
+  DownloadIcon,
+  Maximize2,
+  Terminal,
+  Video,
+  XIcon,
+} from "lucide-react"
 
 import { SANCTRUM_WINDOWS_DOWNLOAD } from "@/config/download"
+import { Button } from "@/components/ui/button"
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+
+const DEMO_VIDEO = {
+  title: "Sanctrum live demo",
+  fileName: "sanctrum-demo.mp4",
+  src: "/videos/sanctrum-demo.mp4",
+  poster: "/videos/sanctrum-demo-poster.webp",
+  meta: "1280x720 • 30 FPS • 01:22",
+} as const
 
 export function FeatureDemoShowcase() {
   const [copied, setCopied] = useState(false)
@@ -175,70 +201,132 @@ export function FeatureDemoShowcase() {
             </div>
           </div>
 
-          {/* ============================================================ */}
-          {/* RIGHT COLUMN: 100% Fluid Edge-to-Edge Video Demo Slot Window */}
-          {/* ============================================================ */}
-          <div className="relative flex w-full flex-1 flex-col overflow-hidden bg-card lg:w-[55%]">
-            {/* Window Header Bar */}
-            <div className="flex h-10 shrink-0 items-center justify-between border-b border-line bg-muted/60 px-4">
-              <div className="flex items-center gap-2">
-                <span className="size-2.5 rounded-full bg-rose-500/80" />
-                <span className="size-2.5 rounded-full bg-amber-500/80" />
-                <span className="size-2.5 rounded-full bg-emerald-500/80" />
-              </div>
-
-              <div className="flex items-center gap-1.5 font-mono text-xs text-muted-foreground">
-                <Terminal className="size-3.5" />
-                <span className="truncate">sanctrum-live-demo.mp4</span>
-              </div>
-
-              <span className="shrink-0 border border-emerald-500/20 bg-emerald-500/10 px-2 py-0.5 font-mono text-[10px] font-semibold text-emerald-600 dark:text-emerald-400">
-                LIVE DEMO
-              </span>
-            </div>
-
-            {/* Video / Screen Recording Slot Canvas (Fills entire remaining space) */}
-            <div className="group relative flex min-h-[320px] w-full flex-1 cursor-pointer flex-col items-center justify-center overflow-hidden bg-zinc-950 p-6 text-white sm:p-8">
-              {/* Subtle Blueprint Grid Pattern */}
-              <div
-                className="pointer-events-none absolute inset-0 opacity-[0.25]"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(to right, rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.08) 1px, transparent 1px)",
-                  backgroundSize: "28px 28px",
-                }}
-              />
-
-              {/* Glowing Canvas Backdrop */}
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-indigo-500/20 via-purple-500/10 to-transparent" />
-
-              {/* Center Play & Screen Recording Indicator */}
-              <div className="relative z-10 flex flex-col items-center gap-3.5 text-center">
-                <div className="flex size-14 items-center justify-center rounded-full border-2 border-white/20 bg-white/10 shadow-2xl backdrop-blur-md transition-all duration-300 group-hover:scale-110 group-hover:border-white/40 group-hover:bg-white/20 sm:size-16">
-                  <Play className="ml-1 size-6 fill-white text-white sm:size-7" />
-                </div>
-
-                <div className="flex flex-col gap-1">
-                  <div className="flex items-center justify-center gap-2 text-sm font-semibold text-zinc-100">
-                    <Video className="size-4 text-indigo-400" />
-                    <span>Screen Recording Slot</span>
-                  </div>
-                  <p className="max-w-sm text-xs leading-relaxed text-zinc-400">
-                    Sematkan rekaman video demo `.mp4` atau video walkthrough
-                    Sanctrum langsung di sini.
-                  </p>
-                </div>
-              </div>
-
-              {/* Bottom Control / Scrubber Bar */}
-              <div className="absolute inset-x-0 bottom-0 flex h-8 items-center justify-between border-t border-white/10 bg-black/40 px-3.5 font-mono text-[10px] text-zinc-400 backdrop-blur-sm">
-                <span>00:00 / 02:45</span>
-                <span>1920x1080 • 60 FPS • WEBAUDIO DSP</span>
-              </div>
-            </div>
-          </div>
+          <DemoVideoWindow />
         </div>
       </div>
     </section>
+  )
+}
+
+function DemoVideoWindow() {
+  const previewVideoRef = React.useRef<HTMLVideoElement>(null)
+  const [expandedStartTime, setExpandedStartTime] = React.useState(0)
+
+  const prepareExpandedPlayback = () => {
+    const previewVideo = previewVideoRef.current
+
+    if (!previewVideo) {
+      return
+    }
+
+    setExpandedStartTime(previewVideo.currentTime)
+    previewVideo.pause()
+  }
+
+  const handleExpandedVideoMetadata = (
+    event: React.SyntheticEvent<HTMLVideoElement>
+  ) => {
+    event.currentTarget.currentTime = expandedStartTime
+  }
+
+  return (
+    <Dialog>
+      <div className="relative flex w-full flex-1 flex-col overflow-hidden bg-card lg:w-[55%]">
+        <div className="flex h-10 shrink-0 items-center justify-between gap-3 border-b border-line bg-muted/60 px-4">
+          <div className="flex items-center gap-2">
+            <span className="size-2.5 rounded-full bg-rose-500/80" />
+            <span className="size-2.5 rounded-full bg-amber-500/80" />
+            <span className="size-2.5 rounded-full bg-emerald-500/80" />
+          </div>
+
+          <div className="flex min-w-0 flex-1 items-center justify-center gap-1.5 font-mono text-xs text-muted-foreground">
+            <Terminal className="size-3.5 shrink-0" />
+            <span className="truncate">{DEMO_VIDEO.fileName}</span>
+          </div>
+
+          <div className="flex shrink-0 items-center gap-2">
+            <span className="border border-emerald-500/20 bg-emerald-500/10 px-2 py-0.5 font-mono text-[10px] font-semibold text-emerald-600 dark:text-emerald-400">
+              LIVE DEMO
+            </span>
+            <DialogTrigger asChild>
+              <Button
+                type="button"
+                variant="ghost"
+                size="icon-sm"
+                className="bg-background/80"
+                aria-label="Expand demo video"
+                title="Expand demo video"
+                onClick={prepareExpandedPlayback}
+              >
+                <Maximize2 data-icon="inline-start" />
+              </Button>
+            </DialogTrigger>
+          </div>
+        </div>
+
+        <div className="relative flex min-h-[320px] w-full flex-1 items-center justify-center overflow-hidden bg-zinc-950">
+          <video
+            ref={previewVideoRef}
+            className="size-full bg-zinc-950 object-contain"
+            controls
+            playsInline
+            preload="metadata"
+            poster={DEMO_VIDEO.poster}
+          >
+            <source src={DEMO_VIDEO.src} type="video/mp4" />
+          </video>
+        </div>
+      </div>
+
+      <DialogContent
+        showCloseButton={false}
+        className="max-w-[min(96vw,1280px)] gap-0 overflow-hidden bg-zinc-950 p-0 text-white ring-white/15"
+      >
+        <DialogHeader className="border-b border-white/10 bg-zinc-950 px-4 py-3">
+          <div className="flex items-center justify-between gap-3">
+            <div className="flex min-w-0 items-center gap-2">
+              <Video className="size-4 shrink-0 text-emerald-300" />
+              <DialogTitle className="truncate text-sm text-white">
+                {DEMO_VIDEO.title}
+              </DialogTitle>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <span className="font-mono text-[10px] text-zinc-400 max-sm:hidden">
+                {DEMO_VIDEO.meta}
+              </span>
+              <DialogClose asChild>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="icon-sm"
+                  className="text-white hover:bg-white/10 hover:text-white"
+                  aria-label="Close demo video"
+                >
+                  <XIcon data-icon="inline-start" />
+                </Button>
+              </DialogClose>
+            </div>
+          </div>
+          <DialogDescription className="sr-only">
+            Full-size playback of the Sanctrum Voice product demo.
+          </DialogDescription>
+        </DialogHeader>
+
+        <div className="bg-black">
+          <video
+            className="max-h-[82vh] w-full bg-black object-contain"
+            controls
+            autoPlay
+            playsInline
+            preload="metadata"
+            poster={DEMO_VIDEO.poster}
+            onLoadedMetadata={handleExpandedVideoMetadata}
+          >
+            <source src={DEMO_VIDEO.src} type="video/mp4" />
+          </video>
+        </div>
+      </DialogContent>
+    </Dialog>
   )
 }
