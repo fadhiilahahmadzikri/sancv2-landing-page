@@ -4,6 +4,7 @@ import { useRef, useState } from "react"
 import { useGSAP } from "@gsap/react"
 import { Volume2, VolumeX } from "lucide-react"
 
+import { SANCTRUM_WINDOWS_DOWNLOAD } from "@/config/download"
 import { gsap } from "@/lib/gsap"
 import { GlowCtaButton } from "@/components/ui/glow-cta-button"
 import { SanctrumIridescentLogo } from "@/components/sanctrum-iridescent-logo"
@@ -227,7 +228,8 @@ export function ProfileHeader() {
             {/* CTA Button: Get Sanctrum with Master GlowCtaButton (Centered) */}
             <div className="hero-cta-btn flex justify-center pt-2">
               <GlowCtaButton
-                href="https://github.com/fadhiilahahmadzikri/sanctrum-voice-v2/releases/latest/download/Sanctrum-Setup-3.1.3-x64.exe"
+                href={SANCTRUM_WINDOWS_DOWNLOAD.path}
+                download={SANCTRUM_WINDOWS_DOWNLOAD.fileName}
                 leadingIcon={
                   <svg
                     className="size-3.5 text-white"

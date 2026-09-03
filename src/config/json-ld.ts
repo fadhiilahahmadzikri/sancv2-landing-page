@@ -1,5 +1,9 @@
 import type { Person, SoftwareApplication, WithContext } from "schema-dts"
 
+import {
+  getWindowsDownloadUrl,
+  SANCTRUM_WINDOWS_DOWNLOAD,
+} from "@/config/download"
 import { SITE_INFO } from "@/config/site"
 import { USER } from "@/features/portfolio/data/user"
 
@@ -33,14 +37,13 @@ export const softwareAppJsonLd: WithContext<SoftwareApplication> = {
   "@type": "SoftwareApplication",
   "@id": JSON_LD_ID.app,
   name: "Sanctrum Voice",
-  softwareVersion: "3.1.3",
+  softwareVersion: SANCTRUM_WINDOWS_DOWNLOAD.appVersion,
   operatingSystem: "Windows 10, Windows 11",
   applicationCategory: "MultimediaApplication",
   description:
     "The open-source Windows voice layer & AI companion. Featuring local Whisper Speech-to-Text (STT), Kokoro neural Text-to-Speech (TTS), Read Aloud selection-to-speech, real-time voice translation, desktop overlay HUD, and interactive 3D living mascot companion.",
   url: SITE_INFO.url,
-  downloadUrl:
-    "https://github.com/fadhiilahahmadzikri/sanctrum-voice-v2/releases/latest",
+  downloadUrl: getWindowsDownloadUrl(SITE_INFO.url),
   featureList: [
     "Local Whisper Speech-to-Text (STT) Voice Dictation",
     "Kokoro Neural Text-to-Speech (TTS) & Selection Read Aloud",

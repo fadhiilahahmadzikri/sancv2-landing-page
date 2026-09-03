@@ -2,6 +2,7 @@
   "short_name": "Sanctrum",
   "name": "Sanctrum Voice",
   "description": "The open-source Windows voice layer & companion.",
+  "categories": ["productivity", "utilities"],
   "icons": [
     {
       "src": "/logo.png",
@@ -25,5 +26,13 @@
   "id": "/",
   "start_url": "/",
   "display": "standalone",
-  "scope": "/"
+  "scope": "/",
+  "prefer_related_applications": true,
+  "related_applications": [
+    {
+      "platform": "windows",
+      "url": "/download/windows",
+      "id": "com.sanctrum.voice"
+    }
+  ]
 }

@@ -40,6 +40,8 @@ const darkModeScript = String.raw`
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_INFO.url),
+  applicationName: SITE_INFO.name,
+  manifest: "/manifest.webmanifest",
   title: {
     template: `%s – ${SITE_INFO.name}`,
     default: `${SITE_INFO.name} – The Open-Source Windows Voice Layer & Companion`,

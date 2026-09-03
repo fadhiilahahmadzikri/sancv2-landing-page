@@ -1,4 +1,7 @@
+import { getWindowsDownloadUrl } from "@/config/download"
 import { SITE_INFO } from "@/config/site"
+
+const windowsDownloadUrl = getWindowsDownloadUrl(SITE_INFO.url)
 
 const content = `# Sanctrum Voice — The Open-Source Windows Voice Layer & AI Companion
 
@@ -6,7 +9,7 @@ const content = `# Sanctrum Voice — The Open-Source Windows Voice Layer & AI C
 
 - **Website:** ${SITE_INFO.url}
 - **GitHub Repository:** https://github.com/fadhiilahahmadzikri/sanctrum-voice-v2
-- **Latest Windows Installer:** https://github.com/fadhiilahahmadzikri/sanctrum-voice-v2/releases/latest
+- **Latest Windows Installer:** ${windowsDownloadUrl}
 - **License:** MIT License
 - **Author:** Fadhiilah Ahmad Zikri
 
@@ -55,7 +58,7 @@ const content = `# Sanctrum Voice — The Open-Source Windows Voice Layer & AI C
 - [Live Interactive Demo](${SITE_INFO.url}/#demo): Interactive voice visualizer and mascot demo in the browser.
 - [Tech Stack](${SITE_INFO.url}/#tech-stack): Bun runtime, Web Audio DSP, Kokoro TTS, Whisper STT, and WebGL.
 - [Why Sanctrum](${SITE_INFO.url}/#why-sanctrum): Comparison of zero-cloud local voice processing vs cloud assistants.
-- [Download Release](${SITE_INFO.url}/#overview): Latest Windows 64-bit installer (.exe).
+- [Download Release](${windowsDownloadUrl}): Latest Windows 64-bit installer (.exe).
 - [GitHub App Repository](https://github.com/fadhiilahahmadzikri/sanctrum-voice-v2): Source code for the desktop application.
 - [GitHub Landing Repository](https://github.com/fadhiilahahmadzikri/sancv2-landing-page): Source code for the official landing page.
 `

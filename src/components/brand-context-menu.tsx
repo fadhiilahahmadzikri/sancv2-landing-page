@@ -5,6 +5,7 @@ import { useTiks } from "@rexa-developer/tiks/react"
 import { Download, Type } from "lucide-react"
 import { toast } from "sonner"
 
+import { SANCTRUM_WINDOWS_DOWNLOAD } from "@/config/download"
 import {
   ContextMenu,
   ContextMenuContent,
@@ -52,12 +53,11 @@ export function BrandContextMenu({ children }: { children: React.ReactNode }) {
         <ContextMenuItem
           render={
             <a
-              href="https://github.com/fadhiilahahmadzikri/sanctrum-voice-v2/releases/latest"
-              target="_blank"
-              rel="noopener noreferrer"
+              href={SANCTRUM_WINDOWS_DOWNLOAD.path}
+              download={SANCTRUM_WINDOWS_DOWNLOAD.fileName}
             >
               <Download className="size-4" />
-              Download Windows Release (.exe)
+              Download Windows Installer (.exe)
             </a>
           }
         />

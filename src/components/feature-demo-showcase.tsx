@@ -1,7 +1,9 @@
 "use client"
 
 import React, { useState } from "react"
-import { ArrowUpRight, Check, Copy, Play, Terminal, Video } from "lucide-react"
+import { Check, Copy, DownloadIcon, Play, Terminal, Video } from "lucide-react"
+
+import { SANCTRUM_WINDOWS_DOWNLOAD } from "@/config/download"
 
 export function FeatureDemoShowcase() {
   const [copied, setCopied] = useState(false)
@@ -161,15 +163,14 @@ export function FeatureDemoShowcase() {
 
               {/* Download Windows CTA */}
               <a
-                href="https://github.com/fadhiilahahmadzikri/sanctrum-voice-v2/releases"
-                target="_blank"
-                rel="noopener noreferrer"
+                href={SANCTRUM_WINDOWS_DOWNLOAD.path}
+                download={SANCTRUM_WINDOWS_DOWNLOAD.fileName}
                 className="group flex items-center justify-between border border-foreground bg-foreground px-4 py-2.5 text-background transition-all hover:bg-foreground/90 active:scale-[0.99]"
               >
                 <span className="text-xs font-semibold tracking-wide sm:text-sm">
-                  Download Windows Release
+                  Download Windows Installer
                 </span>
-                <ArrowUpRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <DownloadIcon className="size-4 transition-transform duration-200 group-hover:translate-y-0.5" />
               </a>
             </div>
           </div>

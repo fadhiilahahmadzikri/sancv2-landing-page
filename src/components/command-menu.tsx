@@ -19,6 +19,7 @@ import {
 import { useTheme } from "next-themes"
 import { useHotkeys } from "react-hotkeys-hook"
 
+import { SANCTRUM_WINDOWS_DOWNLOAD } from "@/config/download"
 import { trackEvent } from "@/lib/events"
 import { useClickSound } from "@/hooks/soundcn/use-click-sound"
 import { useMutationObserver } from "@/hooks/use-mutation-observer"
@@ -39,7 +40,7 @@ import { SearchIcon } from "./icons"
 import { Button } from "./ui/button"
 import { Kbd, KbdGroup } from "./ui/kbd"
 
-type CommandKind = "command" | "page" | "link"
+type CommandKind = "command" | "page" | "link" | "download"
 
 type CommandLinkItem = {
   title: string
@@ -97,12 +98,11 @@ const SANCTRUM_NAV_LINKS: CommandLinkItem[] = [
 const SANCTRUM_DOWNLOAD_LINKS: CommandLinkItem[] = [
   {
     title: "Download Windows Installer (.exe)",
-    href: "https://github.com/fadhiilahahmadzikri/sanctrum-voice-v2/releases/latest",
-    kind: "link",
+    href: SANCTRUM_WINDOWS_DOWNLOAD.path,
+    kind: "download",
     icon: <DownloadIcon className="size-4 text-emerald-500" />,
     shortcut: "DL",
     keywords: ["download", "install", "windows", "setup", "release", "exe"],
-    openInNewTab: true,
   },
   {
     title: "View All GitHub Releases",
@@ -179,22 +179,27 @@ export function CommandMenu({
   )
 
   const handleOpenLink = useCallback(
-    (href: string, openInNewTab = false) => {
+    (link: CommandLinkItem) => {
       setOpen(false)
 
       trackEvent({
         name: "command_menu_action",
         properties: {
-          action: "navigate",
-          href: href,
-          open_in_new_tab: openInNewTab,
+          action: link.kind === "download" ? "download" : "navigate",
+          href: link.href,
+          open_in_new_tab: link.openInNewTab ?? false,
         },
       })
 
-      if (openInNewTab) {
-        window.open(href, "_blank", "noopener")
+      if (link.kind === "download") {
+        window.location.assign(link.href)
+        return
+      }
+
+      if (link.openInNewTab) {
+        window.open(link.href, "_blank", "noopener")
       } else {
-        router.push(href)
+        router.push(link.href)
       }
     },
     [router]
@@ -398,7 +403,7 @@ function CommandLinkGroup({
   heading: string
   links: CommandLinkItem[]
   onLinkHighlight: (link: CommandLinkItem) => void
-  onLinkSelect: (href: string, openInNewTab?: boolean) => void
+  onLinkSelect: (link: CommandLinkItem) => void
 }) {
   return (
     <CommandGroup heading={heading}>
@@ -408,7 +413,7 @@ function CommandLinkGroup({
             key={`${heading}-${link.title}-${link.href || idx}`}
             keywords={link.keywords}
             onHighlight={() => onLinkHighlight(link)}
-            onSelect={() => onLinkSelect(link.href, link.openInNewTab)}
+            onSelect={() => onLinkSelect(link)}
           >
             {link.icon}
 
@@ -430,6 +435,7 @@ const ENTER_ACTION_LABELS: Record<CommandKind, string> = {
   command: "Run command",
   page: "Go to page",
   link: "Open link",
+  download: "Download file",
 }
 
 function CommandMenuFooter({

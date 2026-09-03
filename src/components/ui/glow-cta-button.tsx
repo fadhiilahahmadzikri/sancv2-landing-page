@@ -8,6 +8,7 @@ export interface GlowCtaButtonProps {
   href?: string
   target?: string
   rel?: string
+  download?: boolean | string
   onClick?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>
   type?: "button" | "submit" | "reset"
   leadingIcon?: React.ReactNode
@@ -21,6 +22,7 @@ export function GlowCtaButton({
   href,
   target,
   rel,
+  download,
   onClick,
   type = "button",
   leadingIcon,
@@ -48,6 +50,7 @@ export function GlowCtaButton({
         href={href}
         target={target}
         rel={rel ?? (target === "_blank" ? "noopener noreferrer" : undefined)}
+        download={download}
         onClick={onClick}
         className={commonClasses}
         style={defaultStyle}
